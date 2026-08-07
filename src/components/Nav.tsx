@@ -35,19 +35,13 @@ export default function Nav() {
         <ul className={`nav-links ${open ? 'nav-links--open' : ''}`} role="list">
           {navLinks.map((link) => (
             <li key={link.href}>
-              {link.href.startsWith('/') && !link.href.includes('#') ? (
-                <Link
-                  to={link.href}
-                  className={`nav-link ${location.pathname === link.href ? 'nav-link--active' : ''}`}
-                  onClick={handleLinkClick}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a href={link.href} className="nav-link" onClick={handleLinkClick}>
-                  {link.label}
-                </a>
-              )}
+              <Link
+                to={link.href}
+                className={`nav-link ${location.pathname === link.href ? 'nav-link--active' : ''}`}
+                onClick={handleLinkClick}
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>

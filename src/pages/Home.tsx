@@ -14,9 +14,9 @@ export default function Home() {
           <blockquote className="hero-tagline">{hero.tagline}</blockquote>
           <p className="hero-description">{hero.description}</p>
           <div className="hero-ctas">
-            <a href={hero.ctas.realisations.href} className="btn btn--primary">
+            <Link to="/#realisations" className="btn btn--primary">
               {hero.ctas.realisations.label}
-            </a>
+            </Link>
             <Link to={hero.ctas.parcours.href} className="btn btn--secondary">
               {hero.ctas.parcours.label}
             </Link>
