@@ -20,7 +20,7 @@ describe('Home page', () => {
 
   it('renders the 4 problems', () => {
     renderHome()
-    expect(screen.getByText('Démonstrations instables')).toBeInTheDocument()
+    expect(screen.getByText('Démonstrations à sécuriser')).toBeInTheDocument()
     expect(screen.getByText('Manque de couverture automatisée')).toBeInTheDocument()
     expect(screen.getByText('Données et migrations difficiles à contrôler')).toBeInTheDocument()
     expect(screen.getByText(/IA sans dispositif/)).toBeInTheDocument()

@@ -1,7 +1,7 @@
 export const hero = {
   title: "Qualité logicielle et IA appliquée",
   tagline:
-    "Je transforme les produits fragiles en solutions fiables, démontrables et industrialisables.",
+    "Je fiabilise les produits existants, sécurise leurs démonstrations et accompagne leur montée en charge.",
   description:
     "J\u2019aide les équipes à sécuriser leurs parcours critiques, automatiser les contrôles et exploiter l\u2019IA avec discernement pour livrer plus vite sans sacrifier la qualité.",
   ctas: {
@@ -12,13 +12,13 @@ export const hero = {
 }
 
 export const problems = {
-  title: "Les problèmes que je résous",
+  title: "Les défis que je relève",
   items: [
     {
       icon: "⚠️",
-      title: "Démonstrations instables",
+      title: "Démonstrations à sécuriser",
       description:
-        "Les démonstrations tombent au mauvais moment, les régressions surprennent en production. La confiance des clients et investisseurs s\u2019érode.",
+        "Les régressions non détectées peuvent compromettre une démonstration décisive. Sécuriser les parcours critiques protège la confiance des clients et investisseurs.",
     },
     {
       icon: "🔍",
@@ -54,7 +54,7 @@ export const caseMigration = {
   ],
   sources: ["SQL", "API", "MongoDB", "PostgreSQL (cible)", "Programme de contrôle en Python", "CI/CD", "Dashboard Azure"],
   volume: [
-    { value: "~1 To", label: "de données migrées" },
+    { value: "~1 To", label: "de données contrôlées" },
     { value: "100+ Mds", label: "de lignes" },
     { value: "~1 Md", label: "de documents MongoDB" },
   ],
@@ -100,7 +100,7 @@ export const caseAgentic = {
   keyMessage:
     "Les agents prennent en charge l\u2019analyse, la génération et la comparaison. Le QA conserve la responsabilité des risques, des arbitrages et de la validation.",
   result:
-    "L\u2019expérimentation permet d\u2019économiser plusieurs jours de développement sur la création des TNR.",
+    "L\u2019expérimentation a permis d\u2019économiser plusieurs jours de développement sur le périmètre expérimenté.",
   evolution:
     "Stryker et les tests de mutation sont une piste d\u2019évolution envisagée pour renforcer la confiance dans les tests produits.",
 }
@@ -140,7 +140,7 @@ export const profileSummary = {
 export const contact = {
   title: "Échangeons",
   message:
-    "Vous avez un produit prometteur, mais encore fragile ? Échangeons sur les parcours à sécuriser en priorité.",
+    "Vous avez un produit en pleine croissance ? Échangeons sur les parcours à sécuriser en priorité.",
   linkedin: {
     label: "Me contacter sur LinkedIn",
     href: "https://www.linkedin.com/in/fabiencostes/",

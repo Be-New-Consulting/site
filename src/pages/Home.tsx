@@ -59,7 +59,7 @@ export default function Home() {
 
           <div className="case-details-full grid-3">
             <div>
-              <h3 className="case-section-title">Périmètre migré</h3>
+              <h3 className="case-section-title">Périmètre contrôlé</h3>
               <ul className="case-list">
                 {caseMigration.scope.map((item) => (
                   <li key={item}>{item}</li>
