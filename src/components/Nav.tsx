@@ -32,7 +32,7 @@ export default function Nav() {
     <header className="nav-header">
       <nav className="nav page-container" aria-label="Navigation principale">
         <Link to="/" className="nav-brand" onClick={close}>
-          <img src="/logo-benew.png" alt="" className="nav-logo" width={32} height={32} />
+          <img src="/logo-benew.webp" alt="" className="nav-logo" width={32} height={32} />
           <span className="nav-brand-text">{footerData.brand}</span>
         </Link>
 

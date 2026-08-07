@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="page-container footer-inner">
         <div className="footer-brand">
-          <img src="/logo-benew.png" alt="" width={24} height={24} className="footer-logo" />
+          <img src="/logo-benew.webp" alt="" width={24} height={24} className="footer-logo" />
           <span>{footerData.brand}</span>
         </div>
         <ul className="footer-links" role="list">
