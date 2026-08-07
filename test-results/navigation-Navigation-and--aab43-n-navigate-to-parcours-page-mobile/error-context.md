@@ -35,7 +35,7 @@ Call log:
       - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
     - retrying click action
       - waiting 100ms
-    14 × waiting for element to be visible, enabled and stable
+    13 × waiting for element to be visible, enabled and stable
        - element is visible, enabled and stable
        - scrolling into view if needed
        - done scrolling
@@ -63,6 +63,23 @@ Call log:
        - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
      - retrying click action
        - waiting 500ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <nav class="nav page-container" aria-label="Navigation principale">…</nav> intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
 
 ```
 
