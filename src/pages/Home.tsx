@@ -96,6 +96,15 @@ export default function Home() {
               ))}
             </ul>
           </div>
+
+          <div className="case-role">
+            <h3 className="case-section-title">Mon rôle</h3>
+            <ul className="case-list">
+              {caseMigration.role.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -134,6 +143,15 @@ export default function Home() {
           <div className="case-result-box">
             <p className="case-result-text">{caseAgentic.result}</p>
             <p className="case-evolution">{caseAgentic.evolution}</p>
+          </div>
+
+          <div className="case-role">
+            <h3 className="case-section-title">Mon rôle</h3>
+            <ul className="case-list">
+              {caseAgentic.role.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

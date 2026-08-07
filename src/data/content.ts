@@ -73,6 +73,12 @@ export const caseMigration = {
     "Processus reproductible sur une volumétrie impossible à vérifier manuellement",
     "Résultats exploitables pour sécuriser les décisions de go/no-go",
   ],
+  role: [
+    "Conception de la stratégie de contrôle",
+    "Développement de l\u2019outil Python de validation",
+    "Définition des rapprochements et agrégats",
+    "Analyse et restitution des anomalies détectées",
+  ],
 }
 
 export const caseAgentic = {
@@ -103,6 +109,12 @@ export const caseAgentic = {
     "L\u2019expérimentation a permis d\u2019économiser plusieurs jours de développement sur le périmètre expérimenté.",
   evolution:
     "Stryker et les tests de mutation sont une piste d\u2019évolution envisagée pour renforcer la confiance dans les tests produits.",
+  role: [
+    "Conception de la chaîne d\u2019agents",
+    "Intégration au workflow QA existant",
+    "Définition des critères d\u2019évaluation",
+    "Arbitrage et validation finale",
+  ],
 }
 
 export const method = {
