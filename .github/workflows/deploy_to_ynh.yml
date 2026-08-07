@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy-ynh:
@@ -15,6 +12,21 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm run test
+
+    - name: Build
+      run: npm run build
 
     - name: Install lftp
       run: sudo apt-get update && sudo apt-get install -y lftp
@@ -25,7 +37,7 @@ jobs:
         SFTP_PORT: ${{ secrets.SFTP_PORT }}
       run: |
         mkdir -p ~/.ssh
-        ssh-keyscan -p $SFTP_PORT $SFTP_HOST >> ~/.ssh/known_hosts
+        ssh-keyscan -p "$SFTP_PORT" "$SFTP_HOST" >> ~/.ssh/known_hosts
         chmod 600 ~/.ssh/known_hosts
 
     - name: Push files via SFTP
@@ -36,6 +48,6 @@ jobs:
         SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
       run: |
         lftp -u "$SFTP_USER","$SFTP_PASSWORD" -p $SFTP_PORT sftp://$SFTP_HOST <<EOF
-        mirror -R ./ /www/
+        mirror -R ./dist/ /www/
         bye
         EOF
