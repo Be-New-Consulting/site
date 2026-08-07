@@ -9,7 +9,7 @@ test.describe('Navigation and content', () => {
 
   test('can navigate to parcours page', async ({ page }) => {
     await page.goto('/')
-    await page.locator('a[href="/parcours"]').first().click()
+    await page.getByRole('link', { name: 'Parcours' }).first().click()
     await expect(page).toHaveURL('/parcours')
     await expect(page.locator('text=Parcours professionnel')).toBeVisible()
   })
@@ -22,7 +22,7 @@ test.describe('Navigation and content', () => {
 
   test('can navigate back from parcours to home', async ({ page }) => {
     await page.goto('/parcours')
-    await page.click('a:has-text("Retour")')
+    await page.getByRole('link', { name: /Retour/ }).click()
     await expect(page.locator('text=Fabien Costes')).toBeVisible()
   })
 
@@ -67,14 +67,89 @@ test.describe('Navigation and content', () => {
   })
 })
 
+test.describe('Anchor navigation', () => {
+  test('scroll to #realisations from /parcours', async ({ page }) => {
+    await page.goto('/parcours')
+    // On mobile, nav links are in the burger menu
+    const toggle = page.locator('.nav-toggle')
+    if (await toggle.isVisible()) {
+      await toggle.click()
+    }
+    await page.getByRole('link', { name: 'Réalisations' }).first().click()
+    await expect(page).toHaveURL('/#realisations')
+    await expect(page.locator('#realisations')).toBeInViewport()
+  })
+
+  test('scroll to #contact from /parcours', async ({ page }) => {
+    await page.goto('/parcours')
+    const toggle = page.locator('.nav-toggle')
+    if (await toggle.isVisible()) {
+      await toggle.click()
+    }
+    await page.getByRole('link', { name: 'Contact' }).first().click()
+    await expect(page).toHaveURL('/#contact')
+    await expect(page.locator('#contact')).toBeInViewport()
+  })
+
+  test('direct load of /#realisations scrolls to section', async ({ page }) => {
+    await page.goto('/#realisations')
+    await expect(page.locator('#realisations')).toBeInViewport()
+  })
+
+  test('scroll to #realisations from home page', async ({ page }) => {
+    await page.goto('/')
+    await page.getByRole('link', { name: 'Voir les réalisations' }).click()
+    await expect(page.locator('#realisations')).toBeInViewport()
+  })
+})
+
 test.describe('Mobile navigation', () => {
-  test('burger menu opens navigation on mobile', async ({ page }) => {
+  test('burger menu opens and closes', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
     await page.goto('/')
-    const toggle = page.locator('button[aria-label="Ouvrir le menu"]')
+
+    const toggle = page.locator('.nav-toggle')
     await expect(toggle).toBeVisible()
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+
     await toggle.click()
-    const nav = page.locator('.nav-links--open')
-    await expect(nav).toBeVisible()
+    await expect(page.locator('.nav-links--open')).toBeVisible()
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await expect(toggle).toHaveAttribute('aria-label', 'Fermer le menu')
+
+    await toggle.click()
+    await expect(page.locator('.nav-links--open')).not.toBeVisible()
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await expect(toggle).toHaveAttribute('aria-label', 'Ouvrir le menu')
+  })
+
+  test('Escape closes the mobile menu', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/')
+
+    await page.locator('.nav-toggle').click()
+    await expect(page.locator('.nav-links--open')).toBeVisible()
+
+    await page.keyboard.press('Escape')
+    await expect(page.locator('.nav-links--open')).not.toBeVisible()
+  })
+
+  test('mobile menu navigates to parcours and closes', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/')
+
+    await page.locator('.nav-toggle').click()
+    await page.locator('#nav-menu').getByRole('link', { name: 'Parcours' }).click()
+
+    await expect(page).toHaveURL('/parcours')
+    await expect(page.locator('.nav-links--open')).not.toBeVisible()
+  })
+
+  test('mobile menu links not focusable when closed', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/')
+
+    const navLink = page.locator('#nav-menu a').first()
+    await expect(navLink).toHaveAttribute('tabindex', '-1')
   })
 })
