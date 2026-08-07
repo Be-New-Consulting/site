@@ -55,8 +55,8 @@ describe('Home page', () => {
 
   it('renders method steps', () => {
     renderHome()
-    expect(screen.getByText('Comprendre')).toBeInTheDocument()
-    expect(screen.getByText('Transmettre')).toBeInTheDocument()
+    expect(screen.getByText(/Semaine 1/)).toBeInTheDocument()
+    expect(screen.getByText(/Semaine 4/)).toBeInTheDocument()
   })
 
   it('renders profile summary with certifications', () => {

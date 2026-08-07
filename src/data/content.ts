@@ -118,15 +118,13 @@ export const caseAgentic = {
 }
 
 export const method = {
-  title: "Méthode d\u2019intervention",
-  subtitle: "Une approche pragmatique, adaptée au rythme d\u2019une start-up.",
+  title: "Les quatre premières semaines",
+  subtitle: "Un exemple de démarrage concret, adaptable à votre contexte.",
   steps: [
-    { number: 1, title: "Comprendre", description: "Cartographier le produit et les risques métier" },
-    { number: 2, title: "Sécuriser", description: "Stabiliser les parcours critiques et les démonstrations" },
-    { number: 3, title: "Automatiser", description: "Construire un premier filet de tests automatisés" },
-    { number: 4, title: "Intégrer", description: "Intégrer les contrôles dans la CI/CD" },
-    { number: 5, title: "Accélérer", description: "Introduire des accélérateurs IA mesurables et évaluables" },
-    { number: 6, title: "Transmettre", description: "Transférer les pratiques à l\u2019équipe" },
+    { number: 1, title: "Semaine 1 — Comprendre", description: "Cartographier le produit, les risques métier et les incidents récents" },
+    { number: 2, title: "Semaine 2 — Sécuriser", description: "Stabiliser les parcours critiques et les démonstrations" },
+    { number: 3, title: "Semaine 3 — Automatiser", description: "Déployer un premier filet de tests automatisés et l\u2019intégrer à la CI" },
+    { number: 4, title: "Semaine 4 — Mesurer et transmettre", description: "Mesurer les résultats, prioriser la suite et transférer les pratiques à l\u2019équipe" },
   ],
 }
 
