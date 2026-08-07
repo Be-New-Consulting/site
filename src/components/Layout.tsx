@@ -10,6 +10,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
+      <a href="#main-content" className="skip-link">Aller au contenu</a>
       <Nav />
       <main id="main-content">{children}</main>
       <Footer />
