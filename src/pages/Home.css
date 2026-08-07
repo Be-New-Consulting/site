@@ -85,6 +85,18 @@
   margin: var(--space-2xl) 0;
 }
 
+.case-details-full {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+}
+
+.case-approach-detail-box {
+  margin-top: var(--space-lg);
+}
+
 .case-section-title {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);

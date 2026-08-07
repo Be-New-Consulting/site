@@ -16,20 +16,17 @@ Test timeout of 30000ms exceeded.
 ```
 
 ```
-Error: page.click: Test timeout of 30000ms exceeded.
+Error: locator.click: Test timeout of 30000ms exceeded.
 Call log:
-  - waiting for locator('a[href="/parcours"]')
-    - locator resolved to 3 elements. Proceeding with the first one: <a href="/parcours" class="nav-link ">Parcours</a>
+  - waiting for locator('a[href="/parcours"]').first()
+    - locator resolved to <a href="/parcours" class="nav-link ">Parcours</a>
   - attempting click action
-    - waiting for element to be visible, enabled and stable
-    - element is visible, enabled and stable
-    - scrolling into view if needed
-    - done scrolling
-    - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
-  - retrying click action
-    - waiting for element to be visible, enabled and stable
-    - element is not stable
-  - retrying click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
+    - retrying click action
     - waiting 20ms
     2 × waiting for element to be visible, enabled and stable
       - element is visible, enabled and stable
@@ -38,7 +35,7 @@ Call log:
       - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
     - retrying click action
       - waiting 100ms
-    14 × waiting for element to be visible, enabled and stable
+    13 × waiting for element to be visible, enabled and stable
        - element is visible, enabled and stable
        - scrolling into view if needed
        - done scrolling
@@ -66,6 +63,21 @@ Call log:
        - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
      - retrying click action
        - waiting 500ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <nav class="nav page-container" aria-label="Navigation principale">…</nav> intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <p class="hero-name">Fabien Costes</p> from <main id="main-content">…</main> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
 
 ```
 
@@ -320,8 +332,8 @@ Call log:
   9  | 
   10 |   test('can navigate to parcours page', async ({ page }) => {
   11 |     await page.goto('/')
-> 12 |     await page.click('a[href="/parcours"]')
-     |                ^ Error: page.click: Test timeout of 30000ms exceeded.
+> 12 |     await page.locator('a[href="/parcours"]').first().click()
+     |                                                       ^ Error: locator.click: Test timeout of 30000ms exceeded.
   13 |     await expect(page).toHaveURL('/parcours')
   14 |     await expect(page.locator('text=Parcours professionnel')).toBeVisible()
   15 |   })

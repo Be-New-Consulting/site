@@ -9,7 +9,7 @@ test.describe('Navigation and content', () => {
 
   test('can navigate to parcours page', async ({ page }) => {
     await page.goto('/')
-    await page.click('a[href="/parcours"]')
+    await page.locator('a[href="/parcours"]').first().click()
     await expect(page).toHaveURL('/parcours')
     await expect(page.locator('text=Parcours professionnel')).toBeVisible()
   })

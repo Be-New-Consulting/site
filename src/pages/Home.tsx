@@ -57,7 +57,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="case-details grid-2">
+          <div className="case-details-full grid-3">
             <div>
               <h3 className="case-section-title">Périmètre migré</h3>
               <ul className="case-list">
@@ -74,15 +74,17 @@ export default function Home() {
                 ))}
               </ul>
             </div>
+            <div>
+              <h3 className="case-section-title">Approche</h3>
+              <ul className="case-list">
+                {caseMigration.approach.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="case-approach">
-            <h3 className="case-section-title">Approche</h3>
-            <ul className="case-list">
-              {caseMigration.approach.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+          <div className="case-approach-detail-box">
             <p className="case-approach-detail">{caseMigration.approachDetail}</p>
           </div>
 

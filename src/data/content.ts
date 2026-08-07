@@ -152,5 +152,6 @@ export const footer = {
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/fabiencostes/" },
     { label: "CV complet", href: "https://cv.fcostes.fr/" },
+    { label: "Code source", href: "https://github.com/Be-New-Consulting/competences" },
   ],
 }
