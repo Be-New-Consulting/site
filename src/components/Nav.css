@@ -112,11 +112,13 @@
     gap: var(--space-2xl);
     background: var(--color-bg-primary);
     transform: translateX(100%);
-    transition: transform var(--transition-base);
+    transition: transform var(--transition-base), visibility var(--transition-base);
+    visibility: hidden;
   }
 
   .nav-links--open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .nav-link {
