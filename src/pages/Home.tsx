@@ -20,6 +20,9 @@ export default function Home() {
             <Link to={hero.ctas.parcours.href} className="btn btn--secondary">
               {hero.ctas.parcours.label}
             </Link>
+            <Link to="/#contact" className="btn btn--secondary">
+              {hero.ctas.contact.label}
+            </Link>
           </div>
         </div>
       </section>
@@ -224,14 +227,19 @@ export default function Home() {
           <div className="accent-line" />
           <h2 className="section-title">{contact.title}</h2>
           <p className="contact-message">{contact.message}</p>
-          <a
-            href={contact.linkedin.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn--primary"
-          >
-            {contact.linkedin.label}
-          </a>
+          <div className="contact-ctas">
+            <a href={contact.email.href} className="btn btn--primary">
+              {contact.email.label}
+            </a>
+            <a
+              href={contact.linkedin.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--secondary"
+            >
+              {contact.linkedin.label}
+            </a>
+          </div>
         </div>
       </section>
     </>

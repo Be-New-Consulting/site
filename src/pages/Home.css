@@ -300,6 +300,14 @@
   margin-bottom: var(--space-xl);
 }
 
+.contact-ctas {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+}
+
 /* Responsive */
 @media (min-width: 768px) {
   .hero-title {

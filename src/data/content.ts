@@ -151,6 +151,10 @@ export const contact = {
   title: "Échangeons",
   message:
     "Vous avez un produit en pleine croissance ? Échangeons sur les parcours à sécuriser en priorité.",
+  email: {
+    label: "M\u2019écrire",
+    href: "mailto:fabien@benew-consulting.com",
+  },
   linkedin: {
     label: "Me contacter sur LinkedIn",
     href: "https://www.linkedin.com/in/fabiencostes/",

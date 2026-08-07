@@ -65,10 +65,12 @@ describe('Home page', () => {
     expect(screen.getByText('14+')).toBeInTheDocument()
   })
 
-  it('renders contact section with LinkedIn link', () => {
+  it('renders contact section with email and LinkedIn', () => {
     renderHome()
-    const link = screen.getByRole('link', { name: /contacter sur LinkedIn/i })
-    expect(link).toHaveAttribute('href', 'https://www.linkedin.com/in/fabiencostes/')
+    const emailLink = screen.getByRole('link', { name: /écrire/i })
+    expect(emailLink).toHaveAttribute('href', 'mailto:fabien@benew-consulting.com')
+    const linkedIn = screen.getByRole('link', { name: /contacter sur LinkedIn/i })
+    expect(linkedIn).toHaveAttribute('href', 'https://www.linkedin.com/in/fabiencostes/')
   })
 
   it('has navigation link to /parcours', () => {
