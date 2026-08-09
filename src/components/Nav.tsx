@@ -9,11 +9,24 @@ const navLinks = [
   { label: 'Contact', href: '/#contact' },
 ]
 
+// Keep in sync with the mobile breakpoint in Nav.css
+const MOBILE_QUERY = '(max-width: 767px)'
+
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const location = useLocation()
 
   const close = useCallback(() => setOpen(false), [])
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return
+    const mql = window.matchMedia(MOBILE_QUERY)
+    const update = () => setIsMobile(mql.matches)
+    update()
+    mql.addEventListener('change', update)
+    return () => mql.removeEventListener('change', update)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -27,6 +40,8 @@ export default function Nav() {
       document.body.style.overflow = ''
     }
   }, [open, close])
+
+  const linksHidden = isMobile && !open
 
   return (
     <header className="nav-header">
@@ -57,7 +72,7 @@ export default function Nav() {
                 to={link.href}
                 className={`nav-link ${location.pathname === link.href ? 'nav-link--active' : ''}`}
                 onClick={close}
-                tabIndex={open ? 0 : -1}
+                tabIndex={linksHidden ? -1 : undefined}
               >
                 {link.label}
               </Link>
