@@ -260,6 +260,8 @@ export default function Home() {
             </div>
           </div>
 
+          <p className="profile-note">{profileSummary.note}</p>
+
           <div className="profile-cta">
             <Link to={profileSummary.cta.href} className="btn btn--primary">
               {profileSummary.cta.label}

@@ -43,9 +43,9 @@ export const problems = {
 
 export const caseMigration = {
   badge: "Étude de cas",
-  title: "Sécurisation de migrations à très grande échelle",
+  title: "Garantir la justesse des données, à très grande échelle",
   context:
-    "Sécurisation de la migration de six années de données provenant de quatre plateformes et de plusieurs technologies sources vers PostgreSQL.",
+    "Six années de données, quatre plateformes, plusieurs technologies sources migrées vers PostgreSQL. Les mêmes contrôles déterministes qui valident une migration de cette taille permettent de vérifier qu'un système restitue des données justes, quelle que soit l'échelle.",
   scope: [
     "KPI produits",
     "KPI mots-clés",
@@ -142,8 +142,10 @@ export const profileSummary = {
     "CI/CD",
     "Développement",
     "IA appliquée",
+    "Conformité & audit (RGPD, AI Act)",
   ],
   certifications: ["ISTQB Foundation", "ISTQB Agile", "ISTQB Test Manager", "TMap Test Engineer"],
+  note: "J'opère aussi au quotidien une infrastructure de six serveurs en production pour des clients : sauvegardes chiffrées croisées, déploiement continu, supervision et reprise d'incident.",
   cta: { label: "Voir le parcours détaillé", href: "/parcours" },
 }
 
