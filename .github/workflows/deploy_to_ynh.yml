@@ -89,6 +89,6 @@ jobs:
         SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
       run: |
         lftp -u "$SFTP_USER","$SFTP_PASSWORD" -p $SFTP_PORT sftp://$SFTP_HOST <<EOF
-        mirror -R ./dist/ /www/
+        mirror -R --delete ./dist/ /www/
         bye
         EOF

@@ -13,6 +13,11 @@ const pages = [
     title: 'Parcours professionnel — Fabien Costes | Be New Consulting',
     description: 'Plus de 14 ans en qualité logicielle — de consultant test à pilote transverse, aujourd\u2019hui indépendant. Parcours, compétences et certifications.',
   },
+  {
+    path: 'mentions-legales',
+    title: 'Mentions légales — Be New Consulting',
+    description: 'Mentions légales du site Be New Consulting : éditeur, hébergement, propriété intellectuelle et traitement des données personnelles.',
+  },
 ]
 
 const html = readFileSync(resolve(dist, 'index.html'), 'utf-8')
@@ -45,3 +50,23 @@ for (const page of pages) {
   writeFileSync(resolve(dist, page.path, 'index.html'), output)
   console.log(`✓ Pre-rendered: dist/${page.path}/index.html`)
 }
+
+// sitemap.xml et robots.txt sont generes depuis la meme source que le
+// pre-rendu : ajouter une route ou changer de domaine ne se fait qu'ici.
+const urls = ['', ...pages.map((page) => `${page.path}/`)]
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...urls.map((url) => `  <url><loc>${base}/${url}</loc></url>`),
+  '</urlset>',
+  '',
+].join('\n')
+
+writeFileSync(resolve(dist, 'sitemap.xml'), sitemap)
+console.log(`✓ Generated: dist/sitemap.xml (${urls.length} URLs)`)
+
+const robots = ['User-agent: *', 'Allow: /', '', `Sitemap: ${base}/sitemap.xml`, ''].join('\n')
+
+writeFileSync(resolve(dist, 'robots.txt'), robots)
+console.log('✓ Generated: dist/robots.txt')

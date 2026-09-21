@@ -42,8 +42,11 @@ test.describe('Navigation and content', () => {
     const linkedInLink = page.locator('a[href="https://www.linkedin.com/in/fabiencostes/"]').first()
     await expect(linkedInLink).toBeVisible()
 
-    const sourceLink = page.locator('a[href="https://github.com/Be-New-Consulting/competences"]').first()
+    const sourceLink = page.locator('a[href="https://github.com/Be-New-Consulting/site"]').first()
     await expect(sourceLink).toBeVisible()
+
+    const legalLink = page.getByRole('link', { name: /Mentions légales/i }).first()
+    await expect(legalLink).toHaveAttribute('href', '/mentions-legales')
   })
 
   test('no console errors on home', async ({ page }) => {

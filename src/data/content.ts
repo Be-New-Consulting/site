@@ -165,6 +165,7 @@ export const footer = {
   brand: "Be New Consulting",
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/fabiencostes/" },
-    { label: "Code source", href: "https://github.com/Be-New-Consulting/competences" },
+    { label: "Code source", href: "https://github.com/Be-New-Consulting/site" },
+    { label: "Mentions légales", href: "/mentions-legales" },
   ],
 }

@@ -21,4 +21,25 @@ describe('App routing', () => {
     )
     expect(screen.getByText('Parcours professionnel')).toBeInTheDocument()
   })
+
+  it('renders MentionsLegales at /mentions-legales', () => {
+    render(
+      <MemoryRouter initialEntries={['/mentions-legales']}>
+        <App />
+      </MemoryRouter>,
+    )
+    expect(screen.getByRole('heading', { name: 'Mentions légales', level: 1 })).toBeInTheDocument()
+    expect(screen.getByText('Éditeur du site')).toBeInTheDocument()
+    expect(screen.getByText('Responsable de la publication')).toBeInTheDocument()
+  })
+
+  it('omits legal fields left empty', () => {
+    render(
+      <MemoryRouter initialEntries={['/mentions-legales']}>
+        <App />
+      </MemoryRouter>,
+    )
+    // Les champs non renseignes ne doivent pas apparaitre comme libelles orphelins.
+    expect(screen.queryByText('SIREN')).not.toBeInTheDocument()
+  })
 })
