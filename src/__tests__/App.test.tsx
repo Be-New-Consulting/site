@@ -39,7 +39,10 @@ describe('App routing', () => {
         <App />
       </MemoryRouter>,
     )
-    // Les champs non renseignes ne doivent pas apparaitre comme libelles orphelins.
-    expect(screen.queryByText('SIREN')).not.toBeInTheDocument()
+    // Un champ renseigne est rendu...
+    expect(screen.getByText('979 591 872')).toBeInTheDocument()
+    // ...tandis qu'un champ vide ne laisse pas de libelle orphelin.
+    expect(screen.queryByText('Capital social')).not.toBeInTheDocument()
+    expect(screen.queryByText('RCS')).not.toBeInTheDocument()
   })
 })

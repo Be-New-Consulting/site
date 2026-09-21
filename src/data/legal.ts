@@ -9,9 +9,9 @@ export interface LegalSection {
   paragraphs?: string[]
 }
 
-// Les champs laissés vides ne sont pas rendus. À compléter avant la bascule
-// sur le domaine institutionnel : forme juridique, SIREN, siège social, et
-// le téléphone de l'hébergeur (exigé par la LCEN).
+// Les champs laissés vides ne sont pas rendus, pour ne jamais publier une
+// information légale incomplète. Restent à compléter : capital social et
+// numéro RCS.
 export const legal: {
   title: string
   intro: string
@@ -25,10 +25,12 @@ export const legal: {
       heading: "Éditeur du site",
       rows: [
         { label: "Dénomination", value: "Be New Consulting" },
+        { label: "Forme juridique", value: "EURL — entreprise unipersonnelle à responsabilité limitée" },
+        { label: "Capital social", value: "" },
+        { label: "SIREN", value: "979 591 872" },
+        { label: "RCS", value: "" },
+        { label: "Siège social", value: "16 chemin de Lyze, 33380 Biganos, France" },
         { label: "Responsable de la publication", value: "Fabien Costes" },
-        { label: "Forme juridique", value: "" },
-        { label: "SIREN", value: "" },
-        { label: "Siège social", value: "" },
         { label: "Courriel", value: "contact@benew-consulting.com" },
         { label: "Téléphone", value: "+33 6 51 06 26 84" },
       ],
@@ -36,9 +38,12 @@ export const legal: {
     {
       heading: "Hébergement",
       rows: [
-        { label: "Hébergeur", value: "IONOS SARL" },
-        { label: "Adresse", value: "7 place de la Gare, 57200 Sarreguemines, France" },
-        { label: "Téléphone", value: "" },
+        { label: "Serveur exploité par", value: "Be New Consulting — Fabien Costes" },
+        { label: "Contact", value: "+33 6 51 06 26 84 — contact@benew-consulting.com" },
+        { label: "Infrastructure", value: "IONOS SARL, 7 place de la Gare, 57200 Sarreguemines, France" },
+      ],
+      paragraphs: [
+        "Le site est déployé sur un serveur privé virtuel loué auprès d'IONOS et administré directement par Be New Consulting. Toute demande relative au contenu publié peut être adressée aux coordonnées ci-dessus.",
       ],
     },
     {
