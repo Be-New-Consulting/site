@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { hero, problems, caseMigration, caseAgentic, method, profileSummary, contact } from '../data/content'
+import { offers } from '../data/offers'
 import AgenticPipeline from '../components/AgenticPipeline'
 import './Home.css'
 
@@ -44,8 +45,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Offres */}
+      <section className="section" id="offres">
+        <div className="page-container">
+          <div className="accent-line" />
+          <h2 className="section-title">{offers.title}</h2>
+          <p className="section-subtitle">{offers.subtitle}</p>
+
+          <div className="offers-list">
+            {offers.items.map((offer) => (
+              <article key={offer.title} className="card offer-card">
+                <div className="offer-head">
+                  <span className="badge offer-step">{offer.step}</span>
+                  <h3 className="offer-title">{offer.title}</h3>
+                  <span className="offer-duration">{offer.duration}</span>
+                </div>
+
+                <blockquote className="offer-problem">{offer.problem}</blockquote>
+
+                <div className="offer-body">
+                  <div>
+                    <h4 className="case-section-title">Ce que je livre</h4>
+                    <ul className="case-list">
+                      {offer.deliverables.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="case-section-title">Ce sur quoi je m’appuie</h4>
+                    <p className="offer-proof">{offer.proof}</p>
+                  </div>
+                </div>
+
+                {offer.cta && (
+                  <div className="offer-cta">
+                    <Link to={offer.cta.href} className="btn btn--primary">
+                      {offer.cta.label}
+                    </Link>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Étude de cas : Migration */}
-      <section className="section" id="realisations">
+      <section className="section section--alt" id="realisations">
         <div className="page-container">
           <span className="badge">{caseMigration.badge}</span>
           <h2 className="section-title case-title">{caseMigration.title}</h2>
@@ -112,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* Étude de cas : Usine agentique */}
-      <section className="section section--alt" id="experimentation">
+      <section className="section" id="experimentation">
         <div className="page-container">
           <span className="badge badge--experiment">{caseAgentic.badge}</span>
           <h2 className="section-title case-title">{caseAgentic.title}</h2>
@@ -160,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* Méthode */}
-      <section className="section" id="methode">
+      <section className="section section--alt" id="methode">
         <div className="page-container">
           <div className="accent-line" />
           <h2 className="section-title">{method.title}</h2>
@@ -180,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Parcours résumé */}
-      <section className="section section--alt" id="parcours-resume">
+      <section className="section" id="parcours-resume">
         <div className="page-container">
           <div className="accent-line" />
           <h2 className="section-title">{profileSummary.title}</h2>
@@ -222,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="section" id="contact">
+      <section className="section section--alt" id="contact">
         <div className="page-container contact-section">
           <div className="accent-line" />
           <h2 className="section-title">{contact.title}</h2>

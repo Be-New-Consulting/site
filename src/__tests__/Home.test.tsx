@@ -23,7 +23,7 @@ describe('Home page', () => {
     expect(screen.getByText('Démonstrations à sécuriser')).toBeInTheDocument()
     expect(screen.getByText('Manque de couverture automatisée')).toBeInTheDocument()
     expect(screen.getByText('Données et migrations difficiles à contrôler')).toBeInTheDocument()
-    expect(screen.getByText(/IA sans dispositif/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /IA sans dispositif/ })).toBeInTheDocument()
   })
 
   it('renders migration case study with key figures', () => {
@@ -78,5 +78,27 @@ describe('Home page', () => {
     const links = screen.getAllByRole('link', { name: /parcours/i })
     const parcoursLink = links.find(l => l.getAttribute('href') === '/parcours')
     expect(parcoursLink).toBeInTheDocument()
+  })
+
+  it('renders the three offers in order', () => {
+    renderHome()
+    expect(screen.getByRole('heading', { name: 'Diagnostic qualité' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Premier filet de tests' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Chaîne agentique de tests' })).toBeInTheDocument()
+
+    const steps = screen.getAllByText(/^(Comprendre|Sécuriser|Accélérer)$/)
+    expect(steps.map((el) => el.textContent)).toEqual(['Comprendre', 'Sécuriser', 'Accélérer'])
+  })
+
+  it('exposes a single offer call to action, on the diagnostic', () => {
+    renderHome()
+    const offerCtas = screen.getAllByRole('link', { name: /Démarrer par un diagnostic/i })
+    expect(offerCtas).toHaveLength(1)
+    expect(offerCtas[0]).toHaveAttribute('href', '/#contact')
+  })
+
+  it('states availability terms rather than leaving them implicit', () => {
+    renderHome()
+    expect(screen.getByText(/engagements cadrés, en parallèle ou en relais/i)).toBeInTheDocument()
   })
 })

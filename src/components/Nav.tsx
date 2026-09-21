@@ -4,6 +4,7 @@ import { footer as footerData } from '../data/content'
 import './Nav.css'
 
 const navLinks = [
+  { label: 'Offres', href: '/#offres' },
   { label: 'Réalisations', href: '/#realisations' },
   { label: 'Parcours', href: '/parcours' },
   { label: 'Contact', href: '/#contact' },
