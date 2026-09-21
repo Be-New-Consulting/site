@@ -38,10 +38,10 @@ describe('Parcours page', () => {
     expect(screen.getByText('Technique')).toBeInTheDocument()
   })
 
-  it('renders link to full CV', () => {
+  it('renders contact CTA', () => {
     renderParcours()
-    const link = screen.getByRole('link', { name: /CV complet/i })
-    expect(link).toHaveAttribute('href', 'https://cv.fcostes.fr/')
+    const link = screen.getByRole('link', { name: /Échangeons/i })
+    expect(link).toHaveAttribute('href', '/#contact')
   })
 
   it('renders back link to home', () => {

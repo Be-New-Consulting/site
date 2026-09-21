@@ -34,11 +34,11 @@ for (const page of pages) {
   )
   output = output.replace(
     /<meta property="og:url" content="[^"]*"/,
-    `<meta property="og:url" content="${base}/${page.path}"`
+    `<meta property="og:url" content="${base}/${page.path}/"`
   )
   output = output.replace(
     /<link rel="canonical" href="[^"]*"/,
-    `<link rel="canonical" href="${base}/${page.path}"`
+    `<link rel="canonical" href="${base}/${page.path}/"`
   )
 
   mkdirSync(resolve(dist, page.path), { recursive: true })

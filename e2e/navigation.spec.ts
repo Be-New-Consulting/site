@@ -42,8 +42,8 @@ test.describe('Navigation and content', () => {
     const linkedInLink = page.locator('a[href="https://www.linkedin.com/in/fabiencostes/"]').first()
     await expect(linkedInLink).toBeVisible()
 
-    const cvLink = page.locator('a[href="https://cv.fcostes.fr/"]').first()
-    await expect(cvLink).toBeVisible()
+    const sourceLink = page.locator('a[href="https://github.com/Be-New-Consulting/competences"]').first()
+    await expect(sourceLink).toBeVisible()
   })
 
   test('no console errors on home', async ({ page }) => {

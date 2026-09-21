@@ -136,4 +136,4 @@ export const domains = [
   "Distribution",
 ]
 
-export const cvLink = "https://cv.fcostes.fr/"
+export const contactCta = { label: "\u00c9changeons", href: "/#contact" }

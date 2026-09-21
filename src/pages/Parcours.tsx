@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { experiences, certifications, skills, domains, cvLink } from '../data/parcours'
+import { experiences, certifications, skills, domains, contactCta } from '../data/parcours'
 import './Parcours.css'
 
 export default function Parcours() {
@@ -101,9 +101,9 @@ export default function Parcours() {
       {/* CTA */}
       <section className="section section--alt parcours-cta-section">
         <div className="page-container" style={{ textAlign: 'center' }}>
-          <a href={cvLink} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
-            Voir le CV complet
-          </a>
+          <Link to={contactCta.href} className="btn btn--secondary">
+            {contactCta.label}
+          </Link>
         </div>
       </section>
     </>
