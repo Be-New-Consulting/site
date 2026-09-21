@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = resolve(__dirname, '..', 'dist')
 
-const base = 'https://competences.benew-consulting.com'
+const base = 'https://benew-consulting.com'
 
 const pages = [
   {

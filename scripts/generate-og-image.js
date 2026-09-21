@@ -25,7 +25,7 @@ const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <text x="80" y="520" font-family="Inter, system-ui, sans-serif" font-size="16"
         font-weight="500" fill="#8293a7">Be New Consulting</text>
   <text x="80" y="545" font-family="Inter, system-ui, sans-serif" font-size="14"
-        fill="#64748b">competences.benew-consulting.com</text>
+        fill="#64748b">benew-consulting.com</text>
 </svg>`
 
 const output = resolve(__dirname, '..', 'public', 'og-image.png')
