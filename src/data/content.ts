@@ -15,6 +15,12 @@ export const problems = {
   title: "Les défis que je relève",
   items: [
     {
+      icon: "🤖",
+      title: "IA sans dispositif d\u2019évaluation",
+      description:
+        "L\u2019IA est utilisée sans mesure de qualité, sans validation humaine systématique. Les résultats sont imprévisibles et non reproductibles.",
+    },
+    {
       icon: "⚠️",
       title: "Démonstrations à sécuriser",
       description:
@@ -31,12 +37,6 @@ export const problems = {
       title: "Données et migrations difficiles à contrôler",
       description:
         "Les migrations de données sont complexes et les anomalies impossibles à détecter manuellement sur des volumes conséquents.",
-    },
-    {
-      icon: "🤖",
-      title: "IA sans dispositif d\u2019évaluation",
-      description:
-        "L\u2019IA est utilisée sans mesure de qualité, sans validation humaine systématique. Les résultats sont imprévisibles et non reproductibles.",
     },
   ],
 }
