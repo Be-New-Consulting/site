@@ -13,9 +13,9 @@ export const offers: {
   subtitle: string
   items: Offer[]
 } = {
-  title: "Trois façons de travailler ensemble",
+  title: "Quatre façons de travailler ensemble",
   subtitle:
-    "Trois interventions à périmètre défini, qui s’enchaînent ou se prennent séparément. J’interviens sur des engagements cadrés, en parallèle ou en relais de vos équipes.",
+    "Trois interventions à périmètre défini, qui s’enchaînent ou se prennent séparément, et un suivi dans la durée pour les assistants IA. J’interviens sur des engagements cadrés, en parallèle ou en relais de vos équipes.",
   items: [
     {
       step: "Comprendre",
@@ -61,6 +61,22 @@ export const offers: {
       ],
       proof:
         "L’expérimentation détaillée plus bas, menée en conditions réelles : plusieurs jours de développement économisés sur le périmètre traité, sans céder la responsabilité des risques à un agent.",
+    },
+    {
+      step: "Suivre",
+      title: "Suivi qualité d’un assistant IA",
+      problem:
+        "Votre assistant IA change à chaque livraison et à chaque changement de modèle, et personne ne sait dire si ses réponses restent justes.",
+      duration: "Suivi mensuel, renforts à la demande",
+      deliverables: [
+        "Chaque livraison vérifiée en préproduction, avec un jeu de questions de référence et une checklist du parcours utilisateur",
+        "Des tests exploratoires réguliers, pour trouver ce à quoi personne n’a pensé",
+        "Un référentiel de test qui s’enrichit de vos anomalies et des questions du terrain",
+        "Un rapport qualité mensuel, et un bilan semestriel à partager avec vos clients",
+        "Des renforts avant une échéance (nouveau client, version majeure, changement de modèle), conclus par un avis de mise en ligne",
+      ],
+      proof:
+        "La preuve de méthode détaillée plus bas : un assistant sourcé évalué sur des réponses de référence, où un seul changement de composant modifie un tiers des réponses sans faire bouger la moyenne. Les réponses de référence sont validées par vos experts métier, et une anomalie vous alerte sans bloquer votre livraison : vous gardez la décision de livrer.",
     },
   ],
 }

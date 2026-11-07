@@ -94,14 +94,23 @@ describe('Home page', () => {
     expect(parcoursLink).toBeInTheDocument()
   })
 
-  it('renders the three offers in order', () => {
+  it('renders the four offers in order', () => {
     renderHome()
+    expect(screen.getByRole('heading', { name: 'Quatre façons de travailler ensemble' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Diagnostic qualité' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Premier filet de tests' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Chaîne agentique de tests' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Suivi qualité d’un assistant IA' })).toBeInTheDocument()
 
-    const steps = screen.getAllByText(/^(Comprendre|Sécuriser|Accélérer)$/)
-    expect(steps.map((el) => el.textContent)).toEqual(['Comprendre', 'Sécuriser', 'Accélérer'])
+    const steps = screen.getAllByText(/^(Comprendre|Sécuriser|Accélérer|Suivre)$/)
+    expect(steps.map((el) => el.textContent)).toEqual(['Comprendre', 'Sécuriser', 'Accélérer', 'Suivre'])
+  })
+
+  it('describes the AI assistant follow-up without any price', () => {
+    renderHome()
+    expect(screen.getByText('Suivi mensuel, renforts à la demande')).toBeInTheDocument()
+    expect(screen.getByText(/avis de mise en ligne/)).toBeInTheDocument()
+    expect(document.body.textContent).not.toMatch(/€|HT\b/)
   })
 
   it('exposes a single offer call to action, on the diagnostic', () => {
