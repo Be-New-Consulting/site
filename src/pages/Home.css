@@ -264,6 +264,17 @@
   color: var(--color-text-secondary);
 }
 
+.method-metrics {
+  margin-top: var(--space-2xl);
+}
+
+.method-metrics-note {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  max-width: 70ch;
+}
+
 /* Profile summary */
 .profile-kpis {
   margin-bottom: var(--space-2xl);

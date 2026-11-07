@@ -132,6 +132,7 @@ export const skills = {
     "SQL / PostgreSQL / MongoDB",
     "Azure",
     "IA appliquée au test",
+    "Évaluation d'assistants IA (RAG)",
   ],
 }
 

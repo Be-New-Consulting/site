@@ -23,7 +23,7 @@ describe('Home page', () => {
     expect(screen.getByText('Démonstrations à sécuriser')).toBeInTheDocument()
     expect(screen.getByText('Manque de couverture automatisée')).toBeInTheDocument()
     expect(screen.getByText('Données et migrations difficiles à contrôler')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /IA sans dispositif/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Assistants IA sans socle d’évaluation/ })).toBeInTheDocument()
   })
 
   it('renders migration case study with key figures', () => {
@@ -51,6 +51,20 @@ describe('Home page', () => {
     renderHome()
     expect(screen.getByText('Étude de cas')).toBeInTheDocument()
     expect(screen.getByText('Expérimentation')).toBeInTheDocument()
+  })
+
+  it('renders the sourced assistant evaluation as a method proof', () => {
+    renderHome()
+    expect(screen.getByText('Preuve de méthode')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Évaluer un assistant IA qui cite ses sources/ })).toBeInTheDocument()
+    expect(screen.getByText('8 sur 26')).toBeInTheDocument()
+  })
+
+  it('states what is measured on an AI assistant, as a method', () => {
+    renderHome()
+    expect(screen.getByRole('heading', { name: 'Ce que je mesure sur un assistant IA' })).toBeInTheDocument()
+    expect(screen.getByText(/réponses exactes et correctement sourcées/)).toBeInTheDocument()
+    expect(screen.getByText(/changement de modèle, suivie par catégorie/)).toBeInTheDocument()
   })
 
   it('renders method steps', () => {

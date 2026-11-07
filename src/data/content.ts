@@ -16,9 +16,9 @@ export const problems = {
   items: [
     {
       icon: "🤖",
-      title: "IA sans dispositif d\u2019évaluation",
+      title: "Assistants IA sans socle d’évaluation",
       description:
-        "L\u2019IA est utilisée sans mesure de qualité, sans validation humaine systématique. Les résultats sont imprévisibles et non reproductibles.",
+        "Un assistant qui cite ses sources peut quand même répondre faux, et un changement de modèle peut casser un type de question sans faire bouger la moyenne. Sans jeu de référence ni mesure suivie, ce sont vos utilisateurs qui le découvrent.",
     },
     {
       icon: "⚠️",
@@ -117,15 +117,64 @@ export const caseAgentic = {
   ],
 }
 
+export const caseRagEval = {
+  badge: "Preuve de méthode",
+  title: "Évaluer un assistant IA qui cite ses sources",
+  context:
+    "Un assistant documentaire en santé et sécurité au travail promet deux choses : répondre juste, et citer ses sources. J’ai monté un assistant de ce type sur un corpus public, puis je l’ai soumis à un jeu de questions dont les réponses sont connues, pour mesurer ce que valent ces deux promesses.",
+  volume: [
+    { value: "26", label: "questions de référence relues et validées" },
+    { value: "8 sur 26", label: "réponses qui changent en ne modifiant qu’un composant" },
+    { value: "1 sur 5", label: "refus à tort, le prix d’un système qui n’invente presque jamais" },
+  ],
+  tested: [
+    "Assistant de type RAG : recherche de passages, puis rédaction d’une réponse sourcée",
+    "35 documents publics : Code du travail, Code de la sécurité sociale, pages INRS",
+    "Évaluation des risques, tableaux de maladies professionnelles, bruit, manutention, risque chimique",
+    "Pièges volontaires : texte en version ancienne et actuelle, valeurs limites transitoires, questions hors sujet",
+  ],
+  measured: [
+    "Exactitude de la réponse, comparée à une réponse de référence",
+    "Présence du bon document dans les passages retrouvés",
+    "Refus à bon escient et refus à tort",
+    "Citations inventées",
+  ],
+  results: [
+    "La moyenne bouge de 0,2 point pendant qu’un tiers des réponses changent : un changement de composant mesuré à la moyenne passe pour neutre",
+    "Des réponses fausses citent un document authentique qui dit autre chose : la ligne voisine d’un tableau, une valeur limite expirée, la bonne source pour une mauvaise conclusion",
+    "Aucune citation inventée, mais au prix de refus à tort : erreurs et refus doivent se lire ensemble",
+    "Les tableaux et les dates sont les points de rupture d’un assistant en santé au travail",
+  ],
+  keyMessage:
+    "« Chaque réponse cite ses sources » se vérifie facilement et ne garantit rien. Il faut contrôler que le passage cité dit bien ce que la réponse lui fait dire, et suivre chaque catégorie de questions plutôt que la moyenne.",
+  role: [
+    "Constitution du corpus et du jeu de questions de référence",
+    "Conception des pièges et des critères de notation",
+    "Mise en place de l’évaluation automatisée et comparaison de deux configurations",
+    "Analyse des échecs et restitution",
+  ],
+}
+
 export const method = {
   title: "Les quatre premières semaines",
-  subtitle: "Un exemple de démarrage concret, adaptable à votre contexte.",
+  subtitle:
+    "Un exemple de démarrage concret, calé sur votre calendrier de livraisons et de mises en service. Vous continuez à livrer comme aujourd’hui.",
   steps: [
-    { number: 1, title: "Semaine 1 — Comprendre", description: "Cartographier le produit, les risques métier et les incidents récents" },
-    { number: 2, title: "Semaine 2 — Sécuriser", description: "Stabiliser les parcours critiques et les démonstrations" },
-    { number: 3, title: "Semaine 3 — Automatiser", description: "Déployer un premier filet de tests automatisés et l\u2019intégrer à la CI" },
-    { number: 4, title: "Semaine 4 — Mesurer et transmettre", description: "Mesurer les résultats, prioriser la suite et transférer les pratiques à l\u2019équipe" },
+    { number: 1, title: "Semaine 1 — Comprendre", description: "Cartographier le produit, les parcours critiques, les risques métier et votre calendrier de livraisons et d’ouvertures" },
+    { number: 2, title: "Semaine 2 — Construire le référentiel", description: "Critères d’acceptation et cas de référence, y compris les questions et réponses attendues d’un assistant IA, validés par vos experts métier" },
+    { number: 3, title: "Semaine 3 — Mesurer le point de départ", description: "Première vérification complète en préproduction et premiers contrôles automatisés dans votre CI, qui alertent sans bloquer vos livraisons" },
+    { number: 4, title: "Semaine 4 — Restituer et installer le rythme", description: "Premier rapport et priorités de la suite ; ensuite, chaque livraison est vérifiée avant la production, changement de modèle compris" },
   ],
+  metrics: {
+    title: "Ce que je mesure sur un assistant IA",
+    items: [
+      "Le taux de réponses exactes et correctement sourcées : la source citée dit bien ce que la réponse affirme",
+      "Les refus attendus respectés, lus avec les refus à tort",
+      "La non-régression après chaque livraison ou changement de modèle, suivie par catégorie de questions",
+      "Les régressions détectées avant la production, et les anomalies par niveau de gravité",
+    ],
+    note: "Les cas de test partent de questions reformulées ou anonymisées : l’évaluation ne demande aucune donnée personnelle ni donnée de santé.",
+  },
 }
 
 export const profileSummary = {
@@ -142,6 +191,7 @@ export const profileSummary = {
     "CI/CD",
     "Développement",
     "IA appliquée",
+    "Évaluation d’assistants IA",
     "Conformité & audit (RGPD, AI Act)",
   ],
   certifications: ["ISTQB Foundation", "ISTQB Agile", "ISTQB Test Manager", "TMap Test Engineer"],

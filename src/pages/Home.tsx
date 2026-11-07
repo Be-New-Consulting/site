@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { hero, problems, caseMigration, caseAgentic, method, profileSummary, contact } from '../data/content'
+import { hero, problems, caseMigration, caseAgentic, caseRagEval, method, profileSummary, contact } from '../data/content'
 import { offers } from '../data/offers'
 import AgenticPipeline from '../components/AgenticPipeline'
 import './Home.css'
@@ -206,8 +206,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Preuve de méthode : évaluation d'un assistant sourcé */}
+      <section className="section section--alt" id="evaluation-ia">
+        <div className="page-container">
+          <span className="badge">{caseRagEval.badge}</span>
+          <h2 className="section-title case-title">{caseRagEval.title}</h2>
+          <p className="section-subtitle">{caseRagEval.context}</p>
+
+          <div className="grid-3 case-kpis">
+            {caseRagEval.volume.map((kpi) => (
+              <div key={kpi.label} className="kpi">
+                <div className="kpi-value">{kpi.value}</div>
+                <div className="kpi-label">{kpi.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="case-details-full grid-2">
+            <div>
+              <h3 className="case-section-title">Ce qui a été testé</h3>
+              <ul className="case-list">
+                {caseRagEval.tested.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="case-section-title">Ce qui a été mesuré</h3>
+              <ul className="case-list">
+                {caseRagEval.measured.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="case-results">
+            <h3 className="case-section-title">Ce que la mesure a révélé</h3>
+            <ul className="case-results-list">
+              {caseRagEval.results.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <blockquote className="case-key-message">
+            {caseRagEval.keyMessage}
+          </blockquote>
+
+          <div className="case-role">
+            <h3 className="case-section-title">Mon rôle</h3>
+            <ul className="case-list">
+              {caseRagEval.role.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Méthode */}
-      <section className="section section--alt" id="methode">
+      <section className="section" id="methode">
         <div className="page-container">
           <div className="accent-line" />
           <h2 className="section-title">{method.title}</h2>
@@ -223,11 +282,21 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="case-results method-metrics">
+            <h3 className="case-section-title">{method.metrics.title}</h3>
+            <ul className="case-results-list">
+              {method.metrics.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="method-metrics-note">{method.metrics.note}</p>
+          </div>
         </div>
       </section>
 
       {/* Parcours résumé */}
-      <section className="section" id="parcours-resume">
+      <section className="section section--alt" id="parcours-resume">
         <div className="page-container">
           <div className="accent-line" />
           <h2 className="section-title">{profileSummary.title}</h2>
@@ -271,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="section section--alt" id="contact">
+      <section className="section" id="contact">
         <div className="page-container contact-section">
           <div className="accent-line" />
           <h2 className="section-title">{contact.title}</h2>
