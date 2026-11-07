@@ -101,23 +101,28 @@
   }
 
   .nav-links {
+    /* Le backdrop-filter de .nav-header en fait le bloc conteneur de ce panneau
+       fixe : la hauteur est donc donnée explicitement, sous l'en-tête. */
     position: fixed;
-    top: 64px;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
     flex-direction: column;
     justify-content: flex-start;
     padding-top: var(--space-2xl);
     gap: var(--space-2xl);
     background: var(--color-bg-primary);
-    transform: translateX(100%);
-    transition: transform var(--transition-base), visibility var(--transition-base);
+    /* Masqué par clip-path et non par translateX(100%) : un panneau décalé hors
+       écran élargit la zone défilable et crée un scroll horizontal sur mobile. */
+    clip-path: inset(0 0 0 100%);
+    transition: clip-path var(--transition-base), visibility var(--transition-base);
     visibility: hidden;
   }
 
   .nav-links--open {
-    transform: translateX(0);
+    clip-path: inset(0);
     visibility: visible;
   }
 

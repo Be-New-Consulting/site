@@ -148,6 +148,20 @@ test.describe('Mobile navigation', () => {
     await expect(page.locator('.nav-links--open')).not.toBeVisible()
   })
 
+  for (const path of ['/', '/parcours', '/mentions-legales']) {
+    test(`no horizontal scroll on mobile with the menu closed (${path})`, async ({ page }) => {
+      await page.setViewportSize({ width: 390, height: 844 })
+      await page.goto(path)
+      await expect(page.locator('.nav-toggle')).toHaveAttribute('aria-expanded', 'false')
+
+      const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }))
+      expect(scrollWidth).toBeLessThanOrEqual(clientWidth)
+    })
+  }
+
   test('mobile menu links not focusable when closed', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
     await page.goto('/')
